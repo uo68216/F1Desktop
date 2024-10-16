@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE circuito SYSTEM "circuito.dtd">
+<circuito nombre="Gilles Villeneuve" pais="Canada" localidad="Montreal">
+	<longitud>5782</longitud>
+	<anchura>25</anchura>
+	
+</circuito>

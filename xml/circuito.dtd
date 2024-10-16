@@ -1,0 +1,6 @@
+<!ELEMENT circuito (longitud, anchura)>
+<!ELEMENT longitud (#PCDATA)>
+<!ELEMENT anchura (#PCDATA)>
+<!ATTLIST circuito nombre CDATA #REQUIRED>
+<!ATTLIST circuito pais CDATA #REQUIRED>
+<!ATTLIST circuito localidad CDATA #REQUIRED>
