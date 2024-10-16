@@ -1,0 +1,57 @@
+/*************************************************
+ Andrés Ángel González Granda - uo68216@uniovi.es 
+  Contiene estilos de las tablas
+*************************************************/
+
+/*Especificidad: 001*/
+table {
+    font-size: calc(0.7em + 0.75vw); 
+    table-layout:fixed;
+    text-align: center;
+    width: 80%;
+    border: 0.3vw solid #000000;
+    margin: auto;
+    color: #740000;
+    background-color: #F6F6F3;
+    border-collapse: collapse;
+}
+  
+/*Especificidad: 002*/
+table caption{
+    font-size: calc(0.7em + 0.6vw);
+    padding: 1vw;
+    color: #740000;
+}
+  
+/*Especificidad: 013*/
+table tr:nth-child(even){ 
+    background-color: #E5E5E8; 
+}
+  
+/*Especificidad: 013*/
+table tr:nth-child(odd){ 
+    background-color: #CFCFCF;
+}
+  
+/*Especificidad: 012*/
+table tr:hover{
+    background-color: #fda21a;
+}
+  
+/*Especificidad: 012*/
+table tr:nth-child(1){
+    text-align: center;
+    font-size: calc(0.6em + 0.5vw); 
+    color: #FFFFFF;
+    background-color: #0028C3;
+}
+
+/*Especificidad: 001,001 */
+th, td {
+    border: 0.25vw solid black;
+}
+
+/*Especificidad: 001*/
+th{
+    font-style:italic;
+}
