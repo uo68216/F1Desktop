@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE circuito SYSTEM "circuito.dtd">
+<circuito nombre="Gilles Villeneuve" pais="Canada" localidad="Montreal" longitudCircuito="4361" anchuraMedia="11,968">
+	<carrera>
+		<fecha>09/06/2024</fecha>
+		<horaInicio>20:00</horaInicio>
+		<vueltas>70</vueltas>
+	</carrera>
+	<referencias>
+		<referencia>https://es.wikipedia.org/wiki/Circuito_Gilles_Villeneuve</referencia>
+		<referencia>https://www.racingatmosphere.net/circuitos/circuit-gilles-villeneuve/</referencia>
+		<referencia>https://es.motorsport.com/f1/news/horarios-canada-formula1-como-ver-tv-2024/10618370/</referencia>
+	</referencias>
+	<fotos>
+		<foto>multimedia\imagenes\Circuito-Vista-Aerea.jpg</foto>
+		<foto>multimedia\imagenes\Circuito-Horquilla.png</foto>
+		<foto>multimedia\imagenes\Circuito-Curva10.jpg</foto>
+		<foto>multimedia\imagenes\Circuito-Muro-Campeones.jpg</foto>
+	</fotos>
+	<videos>
+		<video>multimedia\videos\circuito-muro-campeones.mp4</video>
+		<video>multimedia\videos\circuito-vuelta.mp4</video>
+	</videos>
+	<salida>
+		<longitud>-73.52271782342224</longitud>
+		<latitud>45.50010458094061</latitud>
+		<altitud>9.584033172035035</altitud>
+	</salida>
+	<tramos>
+		<tramo>
+			<sector>1</sector>
+			<distancia unidades="metros">28.95</distancia>
+			<longitud>-73.52264134608241</longitud>
+			<latitud>45.49984978108439</latitud>
+			<altitud>9.582452404304483</altitud>
+		</tramo>
+		<tramo>
+			<sector>1</sector>
+			<distancia unidades="metros">22.48</distancia>
+			<longitud>-73.52260890597879</longitud>
+			<latitud>45.49964893087726</latitud>
+			<altitud>9.670254369317231</altitud>
+		</tramo>
+		<tramo>
+			<sector>1</sector>
+			<distancia unidades="metros">24.06</distancia>
+			<longitud>-73.52258630835026</longitud>
+			<latitud>45.49943315561567</latitud>
+			<altitud>9.696738125058527</altitud>
+		</tramo>
+		<tramo>
+			<sector>1</sector>
+			<distancia unidades="metros">25.34</distancia>
+			<longitud>-73.52276117380028</longitud>
+			<latitud>45.49798109586177</latitud>
+			<altitud>10.2124260637003</altitud>
+		</tramo>
+		<tramo>
+			<sector>2</sector>
+			<distancia unidades="metros">6.25</distancia>
+			<longitud>-73.52805627838292</longitud>
+			<latitud>45.50098078457165</latitud>
+			<altitud>9.929915796143478</altitud>
+		</tramo>
+		<tramo>
+			<sector>2</sector>
+			<distancia unidades="metros">10.67</distancia>
+			<longitud>-73.52808026287737</longitud>
+			<latitud>45.5010752202589</latitud>
+			<altitud>9.970297141215141</altitud>
+		</tramo>
+		<tramo>
+			<sector>2</sector>
+			<distancia unidades="metros">9.30</distancia>
+			<longitud>-73.52844857086986</longitud>
+			<latitud>45.50280300429066</latitud>
+			<altitud>11.9208290242799</altitud>
+		</tramo>
+		<tramo>
+			<sector>2</sector>
+			<distancia unidades="metros">8.78</distancia>
+			<longitud>-73.52856110155352</longitud>
+			<latitud>45.50279955243299</latitud>
+			<altitud>12.06175462137248</altitud>
+		</tramo>
+		<tramo>
+			<sector>3</sector>
+			<distancia unidades="metros">41.61</distancia>
+			<longitud>-73.52763962250903</longitud>
+			<latitud>45.51389104683761</latitud>
+			<altitud>12.53824796348403</altitud>
+		</tramo>
+		<tramo>
+			<sector>3</sector>
+			<distancia unidades="metros">20.84</distancia>
+			<longitud>-73.52768737519384</longitud>
+			<latitud>45.51407543669013</latitud>
+			<altitud>12.55223571260077</altitud>
+		</tramo>
+		<tramo>
+			<sector>3</sector>
+			<distancia unidades="metros">26.27</distancia>
+			<longitud>-73.522786491134</longitud>
+			<latitud>45.50033706349583</latitud>
+			<altitud>9.592385595694942</altitud>
+		</tramo>
+		<tramo>
+			<sector>3</sector>
+			<distancia unidades="metros">26.4</distancia>
+			<longitud>-73.52271782342224</longitud>
+			<latitud>45.50010458094061</latitud>
+			<altitud>9.584033172035035</altitud>
+		</tramo>
+	</tramos>
+</circuito>

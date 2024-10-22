@@ -1,6 +1,25 @@
-<!ELEMENT circuito (longitud, anchura)>
+<!ELEMENT circuito (carrera, referencias, fotos, videos, salida, tramos)>
+<!ELEMENT carrera (fecha, horaInicio, vueltas)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT horaInicio (#PCDATA)>
+<!ELEMENT vueltas (#PCDATA)>
+<!ELEMENT referencias (referencia+)>
+<!ELEMENT referencia (#PCDATA)>
+<!ELEMENT fotos (foto+)>
+<!ELEMENT foto (#PCDATA)>
+<!ELEMENT videos (video*)>
+<!ELEMENT video (#PCDATA)>
+<!ELEMENT salida (longitud, latitud, altitud)>
 <!ELEMENT longitud (#PCDATA)>
-<!ELEMENT anchura (#PCDATA)>
+<!ELEMENT latitud (#PCDATA)>
+<!ELEMENT altitud (#PCDATA)>
+<!ELEMENT tramos (tramo+)>
+<!ELEMENT tramo (sector, distancia, longitud, latitud, altitud)>
+<!ELEMENT sector (#PCDATA)>
+<!ELEMENT distancia (#PCDATA)>
 <!ATTLIST circuito nombre CDATA #REQUIRED>
 <!ATTLIST circuito pais CDATA #REQUIRED>
 <!ATTLIST circuito localidad CDATA #REQUIRED>
+<!ATTLIST circuito longitudCircuito CDATA #REQUIRED>
+<!ATTLIST circuito anchuraMedia CDATA #REQUIRED>
+<!ATTLIST distancia unidades CDATA #REQUIRED>
