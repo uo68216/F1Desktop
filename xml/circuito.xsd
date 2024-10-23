@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"	
+	targetNamespace="http://www.uniovi.es"
+	xmlns="http://www.uniovi.es" 
+	elementFormDefault="qualified" >
+	<xs:element name="circuito">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="carrera" />
+				<xs:element ref="referencias" />
+				<xs:element ref="fotos" />
+				<xs:element ref="videos" />
+				<xs:element ref="salida" />
+				<xs:element ref="tramos" />
+			</xs:sequence>
+			<xs:attribute name="nombre" type="xs:string" use="required" />
+			<xs:attribute name="pais" type="xs:string" use="required" />
+			<xs:attribute name="localidad" type="xs:string" use="required" />
+			<xs:attribute name="longitudCircuito" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:nonNegativeInteger"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="anchuraMedia" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0.0"/>
+						<xs:fractionDigits value="4"/>
+					</xs:restriction>
+            	</xs:simpleType>
+			</xs:attribute> 
+
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="carrera">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="fecha" />
+				<xs:element ref="horaInicio" />
+				<xs:element ref="vueltas" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fecha" type="xs:date" />
+	<xs:element name="horaInicio" type="xs:time" />
+	<xs:element name="vueltas">
+		<xs:simpleType>
+			<xs:restriction base="xs:nonNegativeInteger">
+				<xs:maxInclusive value="200"/>
+			</xs:restriction>
+		</xs:simpleType>	
+	</xs:element>
+	<xs:element name="referencias">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="unbounded" ref="referencia" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="referencia" type="xs:string" />
+	<xs:element name="fotos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="unbounded" ref="foto" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="foto" type="xs:string" />
+	<xs:element name="videos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="video" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="video" type="xs:string" />
+	<xs:element name="salida">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="longitud" />
+				<xs:element ref="latitud" />
+				<xs:element ref="altitud" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="longitud" type="xs:string" />
+	<xs:element name="latitud" type="xs:string" />
+	<xs:element name="altitud" type="xs:string" />
+	<xs:element name="tramos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="unbounded" ref="tramo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tramo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sector" />
+				<xs:element ref="distancia" />
+				<xs:element ref="longitud" />
+				<xs:element ref="latitud" />
+				<xs:element ref="altitud" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sector" type="xs:string" />
+	<xs:element name="distancia">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="unidades" type="xs:string" use="required" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

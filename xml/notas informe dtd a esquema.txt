@@ -1,0 +1,84 @@
+1) Cambiar el encabezado para que valida con el esquema en lugar de con el dtd.
+Antes:
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE circuito SYSTEM "circuito.dtd">
+<circuito nombre="Gilles Villeneuve" pais="Canada" localidad="Montreal" longitudCircuito="4361" anchuraMedia="11,968">
+	<carrera>
+	
+Después:
+<?xml version="1.0" encoding="UTF-8" ?>
+<circuito xmlns="http://www.uniovi.es"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.uniovi.es circuito.xsd"
+	nombre="Gilles Villeneuve" 
+	pais="Canada" 
+	localidad="Montreal" 
+	longitudCircuito="4361" 
+	anchuraMedia="11,968">
+	<carrera>
+	
+2) Revisión de los tipos de datos del dtd
+	* Nombre del circuito
+		Definido como atributo del elemento circuito.
+		No se modifica el tipo por defecto --> xs:string
+		No se modifica la opcionalidad del atributo -->  use="required"
+	
+	* País donde está el circuito
+		Definido como atributo del elemento circuito.
+		No se modifica el tipo por defecto --> xs:string
+		No se modifica la opcionalidad del atributo -->  use="required"
+	
+	* Localidad donde está situado el circuito
+		Definido como atributo del elemento circuito.
+		No se modifica el tipo por defecto --> xs:string
+		No se modifica la opcionalidad del atributo -->  use="required"
+	
+	*Longitud del circuito
+		Definido como atributo del elemento circuito.
+		Se modifica el tipo por defecto --> De xs:string a xs:integer
+		Solo se adminten números positivos al tratarse de distancias
+			--> <xs:restriction base="xs:nonNegativeInteger"/>
+		No se modifica la opcionalidad del atributo -->  use="required"
+	
+	*Anchura media de la pista
+		Definido como atributo del elemento circuito.
+		Se modifica el tipo por defecto --> De xs:string a xs:decimal
+		Se admiten solo números positivos al tratarse de una distancia 
+			--> <xs:minInclusive value="0.0"/>
+		Se limita el número de decimales a 4
+			--> <xs:fractionDigits value="4"/>
+		No se modifica la opcionalidad del atributo -->  use="required"
+	
+	*Fecha de la carrera en 2024
+		Definido como elemento hijo <fecha> dentro del elemento <carrera>
+		Se modifica el tipo por defecto --> De xs:string a xs:date.
+		Se cambia el xml a <fecha>2024-06-09</fecha>
+		
+	*Hora de España de inicio de la carrera
+		Definido como elemento hijo <horaInicio> dentro del elemento <carrera>
+		Se modifica el tipo por defecto --> De xs:string a xs:time.
+		Se cambia el xml a <horaInicio>20:00:00</horaInicio>
+		
+	*Número de vueltas de la carrera
+		Definido como elemento hijo <vueltas> dentro del elemento <carrera>
+		Se modifica el tipo por defecto --> De xs:string a xs:integer.
+		Solo se adminten números positivos.
+		Se limita el número máximo de vueltas a 200.
+	
+	
+	* Referencias y bibliografía con información sobre el circuito
+	* Galería de fotografías del circuito
+	* Galería de vídeos del circuito
+	* Coordenadas geográficas del centro de la pista en la línea de salida del circuito
+		– Longitud
+		– Latitud
+		– Altitud
+		
+	*Serie de puntos definiendo tramos del circuito
+		- Sector
+		- Distancia
+		– Longitud
+		– Latitud
+		– Altitud
+		
