@@ -1,1 +1,69 @@
 /* Andrés Ángel González Granda - uo68216 */
+/*Especificidad: 001*/
+body { 
+    font-family: Tahoma, Verdana, Helvetica, sans-serif;
+    font-size: calc(1em + 0.4vw);
+    font-weight: normal;
+    font-style: normal;    
+    line-height: 1.5;
+    color:#000000;
+    background-color: #8FF8FF;
+    margin:0;
+}
+/*Especificidad: 001*/
+header{
+    color:#FFFFFF;
+    background-color: #041E42;
+    padding:1vw;
+}
+
+/*Especificidad: 003*/
+header nav > a{
+    font-size: calc(1em + 0.3vw);
+    text-decoration:none;
+    color: #FFFFFF;
+    /*Hereda background color de header (#041E42) */
+}
+
+/*Especificidad: 001,001*/
+main, aside{
+    margin:0vw 1.5vw;
+}
+
+/*Especificidad: 001,001,001,001,001,001*/ 
+h1,h2,h3,h4,h5,h6 { 
+    font-family: Georgia,"Times New Roman", Times, serif;
+    font-style: italic;
+}
+
+/*Especificidad: 001*/
+h1 { 
+    font-size: calc(2em + 0.6vw);
+    font-weight: bold;
+}    
+
+/*Especificidad: 001*/
+h2 {
+    font-size: calc(1.75em + 0.6vw);    
+}
+
+/*Especificidad: 001*/
+h3 {
+    font-size: calc(1.5em + 0.5vw);
+}
+
+/*Especificidad: 001*/
+h4 {
+    font-size: calc(1.414em + 0.375vw); 
+}
+
+/*Especificidad: 001*/
+h5 {
+    font-size: calc(1.33em + 0.35vw); 
+}
+
+/*Especificidad: 001*/
+h6 {
+    font-size: calc(1.062em + 0.325vw); 
+}
+
