@@ -35,7 +35,13 @@
 	<p>Estás en: <a href="index.html">Inicio</a> >> Meteorología</p>
 	<main>
       <h2>Meteorología</h2>
-      <p>En desarrollo</p>
+      <section>
+        <h3><script>document.write(canada.getNombrePais())</script></h3>		
+        <p>Capital: <script>document.write(canada.getCapital())</script></p>
+        <p> Otra información: </p>
+        <script>document.write(canada.getInformacionSecundaria())</script>
+        <script>canada.escribeCoordenadasMeta()</script>
+      </section>
     </main>
   </body>
 </html>
