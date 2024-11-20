@@ -1,70 +1,174 @@
 /* Andrés Ángel González Granda - uo68216 */
+
 /*Especificidad: 001*/
-
-body { 
-    font-family: Tahoma, Verdana, Helvetica, sans-serif;
-    font-size: calc(1em + 0.4vw);
-    font-weight: normal;
-    font-style: normal;    
-    line-height: 1.5;
-    color:#000000;
-    background-color: #8FF8FF;
-    margin:0;
-}
-/*Especificidad: 001*/
-header{
-    color:#FFFFFF;
-    background-color: #041E42;
-    padding:1vw;
-}
-
-/*Especificidad: 003*/
-header nav > a{
-    font-size: calc(1em + 0.3vw);
-    text-decoration:none;
-    color: #FFFFFF;
-    /*Hereda background color de header (#041E42) */
-}
-
-/*Especificidad: 001,001*/
-main, aside{
-    margin:0vw 1.5vw;
-}
-
-/*Especificidad: 001,001,001,001,001,001*/ 
-h1,h2,h3,h4,h5,h6 { 
-    font-family: Georgia,"Times New Roman", Times, serif;
-    font-style: italic;
+body {
+  /* Color */
+  color: #000000;
+  background-color: #8ff8ff;
+  /* Tipografía */
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-size: calc(1em + 0.4vw);
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.5;
+  /* Márgenes y rellenos */
+  margin: 0;
 }
 
 /*Especificidad: 001*/
-h1 { 
-    font-size: calc(2em + 0.6vw);
-    font-weight: bold;
-}    
+header {
+  /* Color */
+  color: #ffffff;
+  background-color: #041e42;
+  /* Márgenes y rellenos */
+  padding: 1vw;
+}
 
+/*Especificidad: 001,001,001,001,001,001*/
+/* Tipografia general de los encabezados */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Tipografía */
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+}
+/*Especificidad: 001*/
+h1 {
+  font-size: calc(2em + 0.6vw);
+  font-weight: bold;
+}
 /*Especificidad: 001*/
 h2 {
-    font-size: calc(1.75em + 0.6vw);    
+  font-size: calc(1.75em + 0.6vw);
 }
 
 /*Especificidad: 001*/
 h3 {
-    font-size: calc(1.5em + 0.5vw);
+  font-size: calc(1.5em + 0.5vw);
 }
 
 /*Especificidad: 001*/
 h4 {
-    font-size: calc(1.414em + 0.375vw); 
+  font-size: calc(1.414em + 0.375vw);
 }
 
 /*Especificidad: 001*/
 h5 {
-    font-size: calc(1.33em + 0.35vw); 
+  font-size: calc(1.33em + 0.35vw);
 }
 
 /*Especificidad: 001*/
 h6 {
-    font-size: calc(1.062em + 0.325vw); 
+  font-size: calc(1.062em + 0.325vw);
 }
 
+/*Especificidad: 002*/
+/* Enlace dentro de H1 */
+h1 > a {
+  color: #ffffff;
+  /*Hereda background color de header (#041E42) */
+  text-decoration: none;
+}
+
+/*Especificidad: 003*/
+/* Menú principal */
+header > nav > a {
+  /* Color */
+  color: #ffffff;
+  /*Hereda background color de header (#041E42) */
+  /* Tipografía */
+  text-decoration: none;
+}
+
+/*Especificidad: 012*/
+/* Migas de pan */
+body > p:first-of-type {
+  /* Color */
+  color: #ffffff;
+  background-color: #01336f;
+  border-color: #ffffff; /* Color del borde */
+  /* Tipografía */
+  font-size: calc(0.75em + 0.3vw);
+  /* Márgenes y rellenos */
+  padding: 0.5vh 3vh;
+  margin: 0vh;
+  /* Otras */
+  border-width: 0.25vh; /* Grosor del borde */
+  border-style: dotted; /* Estilo del borde */
+}
+
+/*Especificidad: 013*/
+/* Enlaces de las migas de pan */
+body > p:first-of-type > a {
+  color: #ffffff;
+  /* Hereda background color de body > p:first-of-type (#01336f) */
+}
+/*Especificidad: 002*/
+/* Submenú de navegación */
+body > nav {
+  /* Color */
+  background-color: #013e89;
+  border-color: #ffffff; /* Color del borde */
+  /* Márgenes y rellenos */
+  padding: 0.5vh 3vh;
+  margin: 0vh;
+  /* Otras */
+  border-width: 0.25vh; /* Grosor del borde */
+  border-style: dotted; /* Estilo del borde */
+}
+
+/*Especificidad: 003*/
+/* Enlaces del submenú de navegación */
+body > nav > a {
+  /* Color */
+  color: #ffffff;
+  /* Hereda background-color de body > nav (013e89) */
+  font-size: calc(0.8em + 0.25vw);
+  text-decoration: none;
+}
+
+/*Especificidad: 001,001*/
+main,
+aside {
+  margin: 0vw 1.5vw;
+}
+
+/* Enlaces externos al sitio web (empiezan por http) */
+
+/*Especificidad: 012*/
+/* Añadimos un icono después de los enlaces externos*/
+a[href^="http"]::after {
+    content: url("../multimedia/imagenes/Flecha-Enlace.png");
+    height: 1em;
+    vertical-align: middle; /* Alinear con el texto */
+}
+
+/*Especificidad: 021*/
+a[href^="http"]:link {
+  color: #0000ff;
+}
+
+/*Especificidad: 021*/
+a[href^="http"]:visited {
+  color: #630170;
+}
+
+/*Especificidad: 021*/
+a[href^="http"]:focus {
+  border: 0.75vh solid;
+}
+
+/*Especificidad: 021*/
+a[href^="http"]:hover {
+  border: 1.5vh solid;
+}
+
+/*Especificidad: 021*/
+a[href^="http"]:active {
+  color: #ff0000;
+  background: #FFFFFF;
+}
