@@ -18,7 +18,7 @@ class Memoria {
     constructor (){
         console.log("[Clase Memoria] \t --> constructor -- inicio");
         this.hasFlippedCard = false;
-        this.lockBoadr = false;
+        this.lockBoard = false;
         this.firstCard = null;
         this.secondCard = null;
         this.numberOfMoves = 0;
@@ -36,7 +36,8 @@ class Memoria {
             //Algoritmo Durstenfeld
             for (let i = this.elements.length - 1; i > 0; i--) { 
                 const j = Math.floor(Math.random() * (i + 1)); 
-                [this.elements[i], this.elements[j]] = [this.elements[j], this.elements[i]]; // Intercambiar elementos 
+                // Intercambiar elementos 
+                [this.elements[i], this.elements[j]] = [this.elements[j], this.elements[i]]; 
             }
         }
         console.log("[Clase Memoria] \t --> shuffleElements -- fin \n");
@@ -46,7 +47,7 @@ class Memoria {
         console.log("[Clase Memoria] \t --> flip -- inicio");
         let cardState = card.getAttribute("data-state")
         //Tablero bloqueado
-        if (this.lockBoadr === true){
+        if (this.lockBoard === true){
             console.log("[Clase Memoria] \t --> flip -- tablero bloqueado");
             return;
         }
@@ -72,7 +73,7 @@ class Memoria {
             console.log("[Clase Memoria] \t --> flip -- segunda carta girada");
             this.secondCard = card;
             //Bloqueamos el tablero
-            this.lockBoadr = true;
+            this.lockBoard = true;
             //Chequeamos con retardo para poder ver la segunda carta
             setTimeout(() => {
                 this.checkForMatch();
@@ -83,7 +84,7 @@ class Memoria {
     unflipCards(){
         console.log("[Clase Memoria] \t --> unflipCards");
         //Bloquear el tablero
-        this.lockBoadr = true;
+        this.lockBoard = true;
         //Voltear cartas boca arriba
         this.firstCard.setAttribute("data-state","inicial");
         this.secondCard.setAttribute("data-state","inicial");
@@ -95,7 +96,7 @@ class Memoria {
         this.firstCard = null;
         this.secondCard = null;
         this.hasFlippedCard = false;
-        this.lockBoadr = false;
+        this.lockBoard = false;
     }
 
     checkForMatch(){
