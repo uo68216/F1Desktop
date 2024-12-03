@@ -39,6 +39,7 @@ h6 {
 h1 {
   font-size: calc(1.7em + 1vw);
   font-weight: bold;
+  text-align: center;
   margin: 0;
 }
 /*Especificidad: 001*/
@@ -95,8 +96,8 @@ body > p:first-of-type {
   /* Tipografía */
   font-size: calc(0.75em + 0.15vw);
   /* Márgenes y rellenos */
-  padding: 0.5vh 3vh;
-  margin: 0vh;
+  padding: 0.5vw 5vw;
+  margin: 0vw;
   /* Otras */
   border-width: 0.25vh; /* Grosor del borde */
   border-style: dotted; /* Estilo del borde */
@@ -116,8 +117,8 @@ body > nav {
   /* Hereda color de body (#000000) */
   border-color: #ffffff; /* Color del borde */
   /* Márgenes y rellenos */
-  padding: 0.5vh 3vh;
-  margin: 0vh;
+  padding: 0.5vw 5vw;
+  margin: 0vw;
   /* Otras */
   border-width: 0.25vh; /* Grosor del borde */
   border-style: dotted; /* Estilo del borde */
@@ -135,7 +136,7 @@ body > nav > a {
 /*Especificidad: 001,001*/
 main,
 aside {
-  margin: 0vw 1.25vw;
+  margin: 0vw 1vw;
 }
 
 /* Enlaces externos al sitio web (empiezan por http) */
@@ -257,6 +258,7 @@ dd + dt {
 header > nav > a.active {
   color: #1df500;
   /*Hereda background color de header (#041E42) */
+  transform: scale(1.2); /* Incrementa el tamaño un 20% */
 }
 
 /* Elementos multimedia */
@@ -265,14 +267,14 @@ header > nav > a.active {
 @media (orientation: landscape) {
   video {
     width: auto;
+    max-width: 95vw;
     height: 80vh;
-    max-width: 96vw;
   }
 }
 /* Modo vertical  */
 @media (orientation: portrait) {
   video {
-    width: 96vw;
+    width: 95vw;
     height: auto;
     max-height: 80vh;
   }
