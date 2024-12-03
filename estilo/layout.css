@@ -2,3 +2,68 @@
  Andrés Ángel González Granda - uo68216@uniovi.es 
   Estructura de la página.
 ******************************************************/
+/* MONITOR */
+/*Especificidad: 001*/
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 2vw;
+}
+/*Especificidad: 002*/
+header h1 {
+  flex: 30;
+}
+/*Especificidad: 002*/
+header nav {
+  flex: 70;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  align-content: space-around;
+  gap: 2vw;
+}
+
+/* TABLET */
+@media (max-width: 799px) {
+  /*Especificidad: 001*/
+  header {
+    flex-flow: column wrap;
+    gap: 1vw;
+  }
+  /*Especificidad: 003*/
+  header nav a {
+    font-size: calc(0.6em + 0.8vw);
+  }
+  /*Especificidad: 001*/
+  h1 {
+    text-align: center;
+  }
+}
+
+/*  MOVIL */
+@media (max-width: 465px) {
+  /*Especificidad: 001*/
+  header {
+    flex-flow: column wrap;
+  }
+  /*Especificidad: 002*/
+  header nav {
+    flex-flow: column nowrap;
+  }
+  /*Especificidad: 003*/
+  header nav a {
+    font-size: calc(0.7em + 1.5vw);
+  }
+  /*Especificidad: 001*/
+  h1 {
+    text-align: center;
+  }
+
+  /*Especificidad: 012*/
+  /* Migas de pan */
+  body > p:first-of-type {
+    display: none;
+  }
+}

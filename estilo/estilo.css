@@ -7,7 +7,7 @@ body {
   background-color: #8ff8ff;
   /* Tipografía */
   font-family: Tahoma, Verdana, Helvetica, sans-serif;
-  font-size: calc(1em + 0.4vw);
+  font-size: calc(1em + 0.25vw);
   font-weight: normal;
   font-style: normal;
   line-height: 1.5;
@@ -32,18 +32,18 @@ h3,
 h4,
 h5,
 h6 {
-  /* Tipografía */
   font-family: Georgia, "Times New Roman", Times, serif;
   font-style: italic;
 }
 /*Especificidad: 001*/
 h1 {
-  font-size: calc(2em + 0.6vw);
+  font-size: calc(1.7em + 1vw);
   font-weight: bold;
+  margin: 0;
 }
 /*Especificidad: 001*/
 h2 {
-  font-size: calc(1.75em + 0.6vw);
+  font-size: calc(1.6em + 0.6vw);
 }
 
 /*Especificidad: 001*/
@@ -70,7 +70,7 @@ h6 {
 /* Enlace dentro de H1 */
 h1 > a {
   color: #ffffff;
-  /*Hereda background color de header (#041E42) */
+  /*Hereda background-color de header (#041E42) */
   text-decoration: none;
 }
 
@@ -82,6 +82,7 @@ header > nav > a {
   /*Hereda background color de header (#041E42) */
   /* Tipografía */
   text-decoration: none;
+  font-size: calc(0.75em + 0.2vw);
 }
 
 /*Especificidad: 012*/
@@ -92,7 +93,7 @@ body > p:first-of-type {
   background-color: #01336f;
   border-color: #ffffff; /* Color del borde */
   /* Tipografía */
-  font-size: calc(0.75em + 0.3vw);
+  font-size: calc(0.75em + 0.15vw);
   /* Márgenes y rellenos */
   padding: 0.5vh 3vh;
   margin: 0vh;
@@ -112,6 +113,7 @@ body > p:first-of-type > a {
 body > nav {
   /* Color */
   background-color: #013e89;
+  /* Hereda color de body (#000000) */
   border-color: #ffffff; /* Color del borde */
   /* Márgenes y rellenos */
   padding: 0.5vh 3vh;
@@ -124,9 +126,8 @@ body > nav {
 /*Especificidad: 003*/
 /* Enlaces del submenú de navegación */
 body > nav > a {
-  /* Color */
   color: #ffffff;
-  /* Hereda background-color de body > nav (013e89) */
+  /* Hereda background-color de body > nav  (#013e89) */
   font-size: calc(0.8em + 0.25vw);
   text-decoration: none;
 }
@@ -134,17 +135,17 @@ body > nav > a {
 /*Especificidad: 001,001*/
 main,
 aside {
-  margin: 0vw 1.5vw;
+  margin: 0vw 1.25vw;
 }
 
 /* Enlaces externos al sitio web (empiezan por http) */
-
+/* ------------------------------------------------- */
 /*Especificidad: 012*/
 /* Añadimos un icono después de los enlaces externos*/
 a[href^="http"]::after {
-    content: url("../multimedia/imagenes/Flecha-Enlace.png");
-    height: 1em;
-    vertical-align: middle; /* Alinear con el texto */
+  content: url("../multimedia/imagenes/Flecha-Enlace.png");
+  height: 1em;
+  vertical-align: middle; /* Alinear con el texto */
 }
 
 /*Especificidad: 021*/
@@ -170,5 +171,110 @@ a[href^="http"]:hover {
 /*Especificidad: 021*/
 a[href^="http"]:active {
   color: #ff0000;
-  background: #FFFFFF;
+  background: #ffffff;
+}
+
+/* Listas */
+/* ------ */
+/*Especificidad: 001*/
+li {
+  text-indent: calc(0.5em + 0.15vw);
+}
+
+/*Especificidad: 002*/
+li li {
+  font-size: calc(0.9em + 0.25vw);
+}
+
+/*Especificidad: 003*/
+li li li {
+  font-size: calc(0.8em + 0.25vw);
+}
+
+/*Especificidad: 001*/
+ol {
+  list-style-position: outside;
+}
+
+/*Especificidad: 003*/
+ol > li::marker {
+  content: "(" counter(list-item, upper-roman) ")";
+}
+
+/*Especificidad: 001*/
+ul {
+  list-style-type: "★";
+  list-style-position: outside;
+}
+
+/*Especificidad: 005*/
+ol ul ol li::marker {
+  content: counter(list-item, decimal) ".";
+}
+
+/*Especificidad: 016*/
+ol li ul li:last-child ol li {
+  text-decoration: underline;
+}
+
+/*Especificidad: 001*/
+dl {
+  counter-reset: definitionTerms;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+/*Especificidad: 002*/
+dl > dt {
+  font-weight: bolder;
+  text-decoration: underline;
+  font-size: calc(1.1em + 0.25vw);
+}
+
+/*Especificidad: 003*/
+dl > dt::before {
+  counter-increment: definitionTerms;
+  content: "(" counter(definitionTerms, lower-roman) ")";
+  padding-right: 0.5em;
+}
+
+/*Especificidad: 002*/
+dl > dd {
+  font-style: italic;
+  text-align: justify;
+  margin: 0;
+  padding-top: 0.4em;
+}
+
+/*Especificidad: 002*/
+dd + dt {
+  margin-top: 0.8em;
+}
+
+/* Elemento activo del menú */
+/* ------------------------ */
+/*Especificidad: 013*/
+header > nav > a.active {
+  color: #1df500;
+  /*Hereda background color de header (#041E42) */
+}
+
+/* Elementos multimedia */
+/* -------------------- */
+/* Modo horizontal */
+@media (orientation: landscape) {
+  video {
+    width: auto;
+    height: 80vh;
+    max-width: 96vw;
+  }
+}
+
+/* Modo vertical  */
+@media (orientation: portrait) {
+  video {
+    width: 96vw;
+    height: auto;
+    max-height: 80vh;
+  }
 }
