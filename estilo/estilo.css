@@ -214,7 +214,7 @@ ol ul ol li::marker {
 
 /*Especificidad: 016*/
 ol li ul li:last-child ol li {
-  text-decoration: underline;
+  font-style:italic;
 }
 
 /*Especificidad: 001*/
@@ -269,7 +269,6 @@ header > nav > a.active {
     max-width: 96vw;
   }
 }
-
 /* Modo vertical  */
 @media (orientation: portrait) {
   video {
