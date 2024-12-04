@@ -71,7 +71,7 @@ h6 {
 /* Enlace dentro de H1 */
 h1 > a {
   color: #ffffff;
-  /*Hereda background-color de header (#041E42) */
+  /* Hereda background-color de header (#041E42) */
   text-decoration: none;
 }
 
@@ -80,7 +80,7 @@ h1 > a {
 header > nav > a {
   /* Color */
   color: #ffffff;
-  /*Hereda background color de header (#041E42) */
+  /* Hereda background color de header (#041E42) */
   /* Tipografía */
   text-decoration: none;
   font-size: calc(0.75em + 0.2vw);
@@ -152,11 +152,13 @@ a[href^="http"]::after {
 /*Especificidad: 021*/
 a[href^="http"]:link {
   color: #0000ff;
+  /* Hereda background-color de body (#8ff8ff) */
 }
 
 /*Especificidad: 021*/
 a[href^="http"]:visited {
   color: #630170;
+  /* Hereda background-color de body (#8ff8ff) */
 }
 
 /*Especificidad: 021*/
@@ -263,19 +265,20 @@ header > nav > a.active {
 
 /* Elementos multimedia */
 /* -------------------- */
-/* Modo horizontal */
-@media (orientation: landscape) {
-  video {
-    width: auto;
-    max-width: 95vw;
-    height: 80vh;
-  }
-}
 /* Modo vertical  */
 @media (orientation: portrait) {
   video {
     width: 95vw;
     height: auto;
     max-height: 80vh;
+  }
+}
+/* Modo horizontal */
+/* Redefine widht y height del modo vertical (regla anterior)*/
+@media (orientation: landscape) {
+  video {
+    width: auto;
+    max-width: 95vw;
+    height: 80vh;
   }
 }

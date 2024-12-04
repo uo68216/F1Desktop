@@ -28,10 +28,12 @@ header nav {
 /* TABLET */
 @media (max-width: 799px) {
   /*Especificidad: 001*/
+  /* Redefine flex-flow de row nowrap a column wrap (Monitor a Tablet) */
   header {
     flex-flow: column wrap;
   }
   /*Especificidad: 003*/
+  /* Redefine font-size de la hoja de estilos general estilo.css */
   header nav a {
     font-size: calc(0.6em + 0.75vw);
   }
@@ -40,10 +42,12 @@ header nav {
 /*  MOVIL */
 @media (max-width: 465px) {
   /*Especificidad: 002*/
+  /* Redefine flex-flow de row wrap a column nowrap (Monitor a Movil) */
   header nav {
     flex-flow: column nowrap;
   }
   /*Especificidad: 003*/
+  /* Redefine font-size de la hoja de estilos general estilo.css */
   header nav a {
     font-size: calc(0.7em + 1.5vw);
   }
