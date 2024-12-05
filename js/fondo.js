@@ -4,7 +4,8 @@ class Fondo {
     this.pais = pais;
     this.capital = capital;
     this.circuito = circuito;
-    this.url = "";
+    //Fondo por defecto si no se pueden recuperar imágenes de flickr
+    this.url = "multimedia/imagenes/Fondo-Por-Defecto.jpg";
   }
   getImagenFondo() {
     let flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
@@ -34,10 +35,6 @@ class Fondo {
       });
   }
   cargarImagenFondo() {
-    //Si no se ha recuperado una url para el fondo utilizamos uno por defecto.
-    if (this.url == "") {
-      this.url = "multimedia/imagenes/Fondo-Por-Defecto.jpg";
-    }
     $("body").css({ "background-image": "url(" + this.url + ")" });
     $("body").css({ "background-size": "cover" });
     $("body").css({ "background-position": "center" });
