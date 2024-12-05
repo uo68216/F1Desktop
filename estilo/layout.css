@@ -11,8 +11,11 @@ header {
   gap: 2vw;
 }
 /*Especificidad: 002*/
+/* Redefine text-align de la hoja de estilos general estilo.css */
 header h1 {
   flex: 30;
+  text-align: left;
+  padding: 0.25vw 2.5vw;
 }
 /*Especificidad: 002*/
 header nav {

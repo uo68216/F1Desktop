@@ -44,7 +44,7 @@ h1 {
 }
 /*Especificidad: 001*/
 h2 {
-  font-size: calc(1.6em + 0.6vw);
+  font-size: calc(1.7em + 1vw);
 }
 
 /*Especificidad: 001*/
@@ -96,7 +96,7 @@ body > p:first-of-type {
   /* Tipografía */
   font-size: calc(0.75em + 0.15vw);
   /* Márgenes y rellenos */
-  padding: 0.5vw 5vw;
+  padding: 0.25vw 2.5vw;
   margin: 0vw;
   /* Otras */
   border-width: 0.25vh; /* Grosor del borde */
@@ -117,7 +117,7 @@ body > nav {
   /* Hereda color de body (#000000) */
   border-color: #ffffff; /* Color del borde */
   /* Márgenes y rellenos */
-  padding: 0.5vw 5vw;
+  padding: 0.25vw 2.5vw;
   margin: 0vw;
   /* Otras */
   border-width: 0.25vh; /* Grosor del borde */
@@ -181,7 +181,7 @@ a[href^="http"]:active {
 /* ------ */
 /*Especificidad: 001*/
 li {
-  text-indent: calc(0.5em + 0.15vw);
+  padding-left: calc(0.25em + 0.15vw);
 }
 
 /*Especificidad: 002*/
