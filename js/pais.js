@@ -50,5 +50,5 @@ class Pais {
   }
 }
 
-var canada = new Pais("Canada", "Ottawa", 40381196);
+let canada = new Pais("Canada", "Ottawa", 40381196);
 canada.completarDatos("Monarquía parlamentaria", "Cristianismo", "Gilles Villeneuve", -73.52271782342224, 45.50010458094061 );
