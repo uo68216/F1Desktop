@@ -64,15 +64,6 @@ class Pais {
       url: urlPeticion,
       method: "GET",
       success: function (respuesta) {
-        //console.log("Datos en bruto:");
-        //console.log(respuesta);
-        //console.log("Datos serializados:");
-        //console.log(new XMLSerializer().serializeToString(respuesta));
-        thisPrevisionMeteorologica.#procesarDatos(respuesta);
-        //console.log("Imprimimos array objetos pronosticosDiarios:");
-        //this.pronosticosDiarios.forEach((pronostico) => {
-        //  console.log(pronostico);
-        //});
         thisPrevisionMeteorologica.#procesarDatos(respuesta);
         thisPrevisionMeteorologica.#generarArticulos();
       },
@@ -105,11 +96,42 @@ class Pais {
       this.pronosticosDiarios.push(ultimoDia);
     }
   }
-  #generarArticulos(){
-    
+  #generarArticulos() {
+    // Eliminamos de la sección la información de la previsión ya existente
+    $("main section:last-of-type").find("article, p").remove();
+    // Y la volvemos a generar.
+    let parrafoRangoFechas = document.createElement("p");
+    parrafoRangoFechas.textContent = this.#generarMensajeRangoFechas();
+    $("main section:last-of-type").append(parrafoRangoFechas)
+    //Añadimos las previsiones como artículos
+    this.pronosticosDiarios.forEach((pronostico) => {
+      $("main section:last-of-type").append(pronostico.generarArticulo());
+    });
   }
-  #generarMensajeError(){
 
+  #generarMensajeError() {
+    // Eliminamos de la sección la información de la previsión ya existente
+    $("main section:last-of-type").find("article, p").remove();
+    // Y añadimos el mensaje de error .
+    let parrafoError = document.createElement("p");
+    parrafoError.innerHTML = "¡Tenemos problemas! No se pudo obtener información sobre la previsión de <a href='http://openweathermap.org'>OpenWeatherMap</a>";
+    $("main section:last-of-type").append(parrafoError); 
+  }
+
+  #generarMensajeRangoFechas() {
+    let fechaInicioDatos = new Date(this.pronosticosDiarios[0].inicioDatos).toLocaleDateString("es-ES");
+    let horaInicioDatos = new Date(this.pronosticosDiarios[0].inicioDatos).toLocaleString("es-ES", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    let fechaFinDatos = new Date(this.pronosticosDiarios[this.pronosticosDiarios.length - 1].finDatos).toLocaleDateString("es-ES");
+    let horaFinDatos = new Date(this.pronosticosDiarios[this.pronosticosDiarios.length - 1].finDatos).toLocaleString("es-ES", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    let texto = "Obtenidos datos desde el día " + fechaInicioDatos + " a las " + horaInicioDatos;
+    texto += " hasta el día " + fechaFinDatos + " a las " + horaFinDatos;
+    return texto;
   }
 }
 
@@ -120,7 +142,8 @@ class PronosticoDiario {
     this.pronosticoPrincipal = pronosticos[intervaloPrincipal];
     this.inicioDatos = $(pronosticos[0]).attr("from");
     this.finDatos = $(pronosticos).last().attr("to");
-    this.icono = "https://openweathermap.org/img/wn/" + $("symbol", this.pronosticoPrincipal).attr("var") + "@2x.png";
+    this.icono = "https://openweathermap.org/img/wn/" + $("symbol", this.pronosticoPrincipal).attr("var") + "@4x.png";
+    this.descripcionIcono = $("symbol", this.pronosticoPrincipal).attr("name");
     this.temperatura = $("temperature", this.pronosticoPrincipal).attr("value");
     this.temperaturaMaxima = $("temperature", this.pronosticoPrincipal).attr("max");
     this.temperaturaMinima = $("temperature", this.pronosticoPrincipal).attr("min");
@@ -141,6 +164,63 @@ class PronosticoDiario {
       }
     });
     return precipitacionAcumulada.toFixed(2);
+  }
+
+  generarArticulo() {
+    // Encabezado con la fecha de la previsión
+    let h4 = document.createElement("h4");
+    h4.textContent = new Date(this.inicioDatos).toLocaleDateString("es-ES");
+    // Icono
+    let img = document.createElement("img");
+    img.setAttribute("src", this.icono);
+    img.setAttribute("alt", this.descripcionIcono);
+    // Datos meteorológicos en párrafos
+    // Temperatura
+    let p1 = document.createElement("p");
+    p1.textContent = "Temperatura: " + this.temperatura + " ºC";
+    // Temperatura mínima
+    let p2 = document.createElement("p");
+    p2.textContent = "Temperatura mínima: " + this.temperaturaMinima + " ºC";
+    // Temperatura máxima
+    let p3 = document.createElement("p");
+    p3.textContent = "Temperatura máxima: " + this.temperaturaMaxima + " ºC";
+    // Sensación termica
+    let p4 = document.createElement("p");
+    p4.textContent = "Sensación térmica: " + this.sensacionTermica + " ºC";
+    // Porcentaje de humedad
+    let p5 = document.createElement("p");
+    p5.textContent = "Humedad: " + this.porcentajeHumedad + " %";
+    // Precipitación
+    let p6 = document.createElement("p");
+    p6.textContent = "Precipitacion acumulada: " + this.lluvia + " mm";
+    // Rango de las previsiones
+    let p7 = document.createElement("p");
+    if (this.pronosticos.length < 8) {
+      let horaInicioDatos = new Date(this.inicioDatos).toLocaleString("es-ES", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      let horaFinDatos = new Date(this.finDatos).toLocaleString("es-ES", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      p7.textContent = "Datos desde las " + horaInicioDatos + " hasta las " + horaFinDatos;
+    } else {
+      p7.textContent = "Datos de todo el día";
+    }
+
+    //Creamos el artículo y componemos todos los elementos dentro.
+    let article = document.createElement("article");
+    article.appendChild(h4);
+    article.appendChild(img);
+    article.appendChild(p1);
+    article.appendChild(p2);
+    article.appendChild(p3);
+    article.appendChild(p4);
+    article.appendChild(p5);
+    article.appendChild(p6);
+    article.appendChild(p7);
+    return article;
   }
 }
 
