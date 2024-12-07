@@ -15,6 +15,8 @@
     <!-- Hojas de estilo -->
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- Javascript -->
     <script src="js/pais.js"></script>
   </head>
@@ -41,6 +43,10 @@
         <p> Otra información: </p>
         <script>document.write(canada.getInformacionSecundaria())</script>
         <script>canada.escribeCoordenadasMeta()</script>
+      </section>
+      <section>
+        <h3>Previsión:</h3>
+        <script>canada.getPrevisionMeteorologica()</script>
       </section>
     </main>
   </body>
