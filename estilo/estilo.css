@@ -217,7 +217,7 @@ ol ul ol li::marker {
 
 /*Especificidad: 016*/
 ol li ul li:last-child ol li {
-  font-style:italic;
+  font-style: italic;
 }
 
 /*Especificidad: 001*/
@@ -281,4 +281,26 @@ header > nav > a.active {
     max-width: 95vw;
     height: 80vh;
   }
+}
+/* Artículos  */
+/*Especificidad: 001*/
+article
+{
+  margin: 2vw 0vw;
+  border: 0.3vw solid #000000;
+  border-radius: 2vw;
+}
+/*Especificidad: 002,002,002,002,002*/
+article h4,
+article h5,
+article h6,
+article p,
+article figure {
+  margin: 0;
+}
+/*Especificidad: 002*/
+article > section
+{
+  margin: 1vw;
+  padding-bottom: 2vw;
 }
