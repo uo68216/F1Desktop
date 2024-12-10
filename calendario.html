@@ -15,6 +15,10 @@
     <!-- Hojas de estilo -->
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Javascript -->
+    <script src="js/agenda.js"></script>
   </head>
   <body>
     <header>
@@ -23,7 +27,7 @@
         <a href="index.html" title="Página principal">Inicio</a>
         <a href="piloto.html" title="Piloto">Piloto</a>
         <a href="noticias.html" title="Noticias">Noticias</a>
-        <a href="calendario.html" title="Calendario"class="active">Calendario</a>
+        <a href="calendario.html" title="Calendario" class="active">Calendario</a>
         <a href="meteorologia.html" title="Meteorología">Meteorología</a>
         <a href="circuito.html" title="Circuito">Circuito</a>
         <a href="viajes.html" title="Viajes">Viajes</a>
@@ -31,9 +35,9 @@
       </nav>
     </header>
     <p>Estás en: <a href="index.html">Inicio</a> >> Calendario</p>
-	<main>
+    <main>
       <h2>Calendario</h2>
-      <p>En desarrollo</p>
+      <script>agenda.getAgendaCarreras()</script>
     </main>
   </body>
 </html>

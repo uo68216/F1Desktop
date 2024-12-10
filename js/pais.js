@@ -30,7 +30,7 @@ class Pais {
   }
   getInformacionSecundaria() {
     let output = "<ul>";
-    output += "<li>Población: " + this.poblacion + "habitantes </li>";
+    output += "<li>Población: " + this.poblacion + " habitantes </li>";
     output += "<li>Forma de gobierno: " + this.formaGobierno + "</li>";
     output += "<li>Religión Mayoritaria: " + this.religion + "</li>";
     output += "<li>Nombre del circuito: " + this.nombreCircuito + "</li>";
@@ -223,7 +223,7 @@ class PronosticoDiario {
     this.velocidadRafagaViento = $("windGust", this.pronosticoPrincipal).attr("gust");
   }
 
-  generarArticulo() {
+  getArticulo() {
     // Encabezado con la fecha de la previsión
     let h4 = document.createElement("h4");
     h4.textContent = new Date(this.inicioDatos).toLocaleDateString("es-ES");

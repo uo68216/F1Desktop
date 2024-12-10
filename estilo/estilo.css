@@ -302,5 +302,5 @@ article figure {
 article > section
 {
   margin: 1vw;
-  padding-bottom: 2vw;
+  padding: 0vw 0vw 2vw 2vw;
 }

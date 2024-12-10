@@ -15,7 +15,6 @@
     justify-items: start;
     align-items: start;
     column-gap: 1vw;
-    /*background-color: #01336f;*/
   }
 }
 /* TABLET */
@@ -37,7 +36,6 @@
   article {
     display: flex;
     flex-flow: column nowrap;
-    align-items: stretch;
     gap: 1vh;
   }
 }
