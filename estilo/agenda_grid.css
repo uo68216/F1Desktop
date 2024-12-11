@@ -1,0 +1,37 @@
+main{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+
+
+article {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 20% 80%;
+  grid-template-areas:
+    "titulo titulo"
+    "horario circuito";
+  justify-items: start;
+  align-items: center;
+  column-gap: 1vw;
+}
+
+/*Especificidad: 002*/
+article h3 {
+  grid-area: titulo;
+  place-self: center;
+}
+
+/*Especificidad: 012*/
+article > section:nth-of-type(1) {
+  grid-area: horario;
+}
+
+/*Especificidad: 012*/
+article > section:nth-of-type(2) {
+  grid-area: circuito;
+}

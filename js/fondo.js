@@ -9,7 +9,7 @@ class Fondo {
   }
   getImagenFondo() {
     let flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-    //Se omite a propósito la capital
+    //Se omite a propósito la capital. Salían fotos no relacionadas con el tema de la práctica.
     let cadenaTags = '"circuit ' + this.circuito + '","' + this.pais + '"';
     let thisGetImagenFondo = this; // Guardamos el contexto de 'this'
     $.getJSON(flickrAPI, {
@@ -23,6 +23,7 @@ class Fondo {
           //Seleccionamos al azar una de las imágenes devueltas
           let numeroAleatorio = Math.floor(Math.random() * data.items.length);
           thisGetImagenFondo.url = data.items[numeroAleatorio].media.m;
+          thisGetImagenFondo.url = thisGetImagenFondo.url.replace('_m','_b');
         }
       })
       .fail(function (jqXHR, textStatus, errorThrown) {

@@ -38,8 +38,8 @@ class Pais {
     return output;
   }
   escribeCoordenadasMeta() {
-    document.write("<p>" + "Las coordenadas de la línea de meta son :");
-    document.write(this.#getCoordenadasLegibles() + "</p>");
+    document.write("<p>" + "Las coordenadas de la línea de meta son: ");
+    document.write(this.#getCoordenadasLegibles() + ".</p>");
   }
 
   getLatitud() {
@@ -65,8 +65,8 @@ class Pais {
     const latDireccion = this.latitud >= 0 ? "Norte" : "Sur";
     const lonDireccion = this.longitud >= 0 ? "Este" : "Oeste";
 
-    let mensaje = `latitud ${latDireccion} ${latDMS.grados}º ${latDMS.minutos}' ${latDMS.segundos}"`
-    mensaje +=`, longitud ${lonDireccion} ${lonDMS.grados}º ${lonDMS.minutos}' ${lonDMS.segundos}"`
+    let mensaje = `latitud ${latDMS.grados}º ${latDMS.minutos}' ${latDMS.segundos}" ${latDireccion}`
+    mensaje +=`, longitud ${lonDMS.grados}º ${lonDMS.minutos}' ${lonDMS.segundos} ${lonDireccion}`
 
     return mensaje;
   }
@@ -128,7 +128,7 @@ class Pais {
     });
     //Y luego se añaden las previsiones de cada dia como artículos
     this.pronosticosDiarios.forEach((pronostico) => {
-      $("main > section:last-of-type").append(pronostico.generarArticulo());
+      $("main > section:last-of-type").append(pronostico.getArticulo());
     });
   }
 
