@@ -1582,11 +1582,11 @@
 			<altitud>9.592385595694942</altitud>
 		</tramo>
 		<tramo>
-				<sector>3</sector>
-				<distancia unidades="metros">26.4</distancia>
-				<longitud>-73.52271782342224</longitud>
-				<latitud>45.50010458094061</latitud>
-				<altitud>9.584033172035035</altitud>
-			</tramo>
+			<sector>3</sector>
+			<distancia unidades="metros">26.4</distancia>
+			<longitud>-73.52271782342224</longitud>
+			<latitud>45.50010458094061</latitud>
+			<altitud>9.584033172035035</altitud>
+		</tramo>
 	</tramos>
 </circuito>
